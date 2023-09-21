@@ -1,5 +1,13 @@
+html {
+    scroll-behavior: smooth;
+  }
 body{
-    background-color: #4f4949;
+
+    /* background-color: #4f4949; */
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(0deg, rgb(18, 14, 67), rgb(216, 216, 216));
+    /* background: linear-gradient(0deg, rgb(19, 22, 22), rgb(123, 156, 157)); */
 }
 
 :root {
@@ -66,12 +74,15 @@ height: 100%;
 padding-left: 12px;
 border-radius: 10px;
 border: 1px solid;
+box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);
 }
 .search-btn{
 width: 80px;
 height: 100%;
 border: transparent;
-border-radius: 10px;}
+border-radius: 10px;
+box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);
+}
 
 .search-btn:hover, .search-btn:focus {
     background-color: gray;
@@ -89,19 +100,51 @@ text-shadow: 2px 2px 4px #000000;
 }
 .load-more{
 display: block;
-width: 100px;
+width: 80%;
 height: 32px;
 border: transparent;
 border-radius: 10px;
 margin-top: 12px;
 margin-bottom: 12px;
 margin-right: auto;
-margin-left: auto;}
+margin-left: auto;
+box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);
+}
 
 .load-more:hover, .load-more:focus {
     background-color: gray;
     color: bisque;
 
+}
+
+.up-box{
+    position: fixed;
+  right: 12px;
+  bottom: 12px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border-radius: 50%;
+    border: transparent;
+    box-shadow: 10px 10px 8px 2px rgba(0, 0, 0, 0.3);
+}
+.up-link{
+    color: black;
+    display: block;
+    text-decoration: none;
+    width: 32px;
+    height: 32px;
+    padding-top: 6px;
+    text-align: center;
+}
+.up-link:hover, .up-link:focus {
+    background-color: gray;
+    color: bisque;
+    
 }
 .hidden {
     display: none;

@@ -1,8 +1,8 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import { refs } from '..';
+import { refs } from './refs';
 
-export async function renderImageCard(data) {
+export function renderImageCard(data) {
   const markup = data
     .map(
       ({
@@ -15,25 +15,25 @@ export async function renderImageCard(data) {
         downloads,
       }) =>
         `<div class="photo-card gallery__item">
-      <a href="${largeImageURL}" class="gallery__link" >
-        <img class="gallery__image" src="${webformatURL}" alt="${tags} loading="lazy" />
-        </a>
-        <div class="info">
-          <p class="info-item">
-            <b>Likes ${likes}</b>
-          </p>
-          <p class="info-item">
-            <b>Views ${views}</b>
-          </p>
-          <p class="info-item">
-            <b>Comments ${comments}</b>
-          </p>
-          <p class="info-item">
-            <b>Downloads ${downloads}</b>
-          </p>
-        </div>
-        
-      </div>`
+        <a href="${largeImageURL}" class="gallery__link" >
+          <img class="gallery__image" src="${webformatURL}" alt="${tags} loading="lazy" />
+          </a>
+          <div class="info">
+            <p class="info-item">
+              <b>Likes ${likes}</b>
+            </p>
+            <p class="info-item">
+              <b>Views ${views}</b>
+            </p>
+            <p class="info-item">
+              <b>Comments ${comments}</b>
+            </p>
+            <p class="info-item">
+              <b>Downloads ${downloads}</b>
+            </p>
+          </div>
+          
+        </div>`
     )
     .join('');
   refs.gallery.insertAdjacentHTML('beforeend', markup);
@@ -42,9 +42,4 @@ export async function renderImageCard(data) {
     captionsData: 'alt',
     captionDelay: 250,
   });
-  //   changeVisibility(refs.loadMoreBtn);
 }
-
-// export function changeVisibility(element) {
-//   element.classList.remove('hidden');
-// }
