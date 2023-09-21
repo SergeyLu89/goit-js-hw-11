@@ -44,6 +44,9 @@ async function responseRequest() {
     if (page * 40 >= totalHits) {
       refs.loadMoreBtn.removeEventListener('click', onLoadMoreBtnClick);
       refs.loadMoreBtn.classList.add('hidden');
+      Notiflix.Notify.failure(
+        "We're sorry, but you've reached the end of search results."
+      );
     } else {
       refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
       refs.loadMoreBtn.classList.remove('hidden');
