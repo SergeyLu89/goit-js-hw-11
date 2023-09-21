@@ -57,7 +57,16 @@ async function responseRequest() {
     Notiflix.Notify.failure(error.message);
   }
 }
-function onLoadMoreBtnClick() {
+async function onLoadMoreBtnClick() {
   page += 1;
-  responseRequest();
+  await responseRequest();
+
+  const { height: cardHeight } = document
+    .querySelector('.gallery')
+    .firstElementChild.getBoundingClientRect();
+
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
 }
