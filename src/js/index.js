@@ -16,6 +16,7 @@ async function onSearchBtn(event) {
   refs.gallery.innerHTML = '';
   page = 1;
   inputValue = refs.input.value;
+  refs.loadMoreBtn.classList.add('hidden');
 
   if (inputValue === '') {
     Notiflix.Notify.warning('Please enter your request');
