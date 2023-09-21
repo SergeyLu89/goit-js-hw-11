@@ -1,5 +1,3 @@
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
 import { refs } from './refs';
 
 export function renderImageCard(data) {
@@ -37,9 +35,4 @@ export function renderImageCard(data) {
     )
     .join('');
   refs.gallery.insertAdjacentHTML('beforeend', markup);
-
-  new SimpleLightbox('.gallery__link', {
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
 }

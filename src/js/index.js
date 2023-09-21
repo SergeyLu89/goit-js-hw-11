@@ -1,21 +1,27 @@
 import Notiflix from 'notiflix';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { refs } from './refs';
 import { fechImage } from './web-API';
 import { renderImageCard } from './render-options';
 
-refs.form.addEventListener('submit', onSearchBtn);
+refs.form.addEventListener('submit', onFormSubmit);
 // refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
 
 let page = 1;
 let inputValue = '';
+const lightbox = new SimpleLightbox('.gallery__link', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
-async function onSearchBtn(event) {
+async function onFormSubmit(event) {
   event.preventDefault();
 
   refs.gallery.innerHTML = '';
   page = 1;
-  inputValue = refs.input.value;
+  inputValue = refs.input.value.trim();
   refs.loadMoreBtn.classList.add('hidden');
   refs.upBtn.classList.add('hidden');
 
@@ -42,6 +48,8 @@ async function responseRequest() {
     }
 
     renderImageCard(hits);
+
+    lightbox.refresh();
 
     if (page * 40 >= totalHits) {
       refs.loadMoreBtn.removeEventListener('click', onLoadMoreBtnClick);
