@@ -17,6 +17,7 @@ async function onSearchBtn(event) {
   page = 1;
   inputValue = refs.input.value;
   refs.loadMoreBtn.classList.add('hidden');
+  refs.upBtn.classList.add('hidden');
 
   if (inputValue === '') {
     Notiflix.Notify.warning('Please enter your request');
@@ -51,6 +52,8 @@ async function responseRequest() {
     } else {
       refs.loadMoreBtn.addEventListener('click', onLoadMoreBtnClick);
       refs.loadMoreBtn.classList.remove('hidden');
+    }
+    if (page >= 2) {
       refs.upBtn.classList.remove('hidden');
     }
   } catch (error) {
